@@ -1,14 +1,17 @@
+import Characters from "./components/characters/Characters";
 
-import './App.css';
-import {users} from "./components/userList/list";
-import Users from "./components/users/Users";
+import './components/characters/Character.css';
 
 function App() {
   return (
     <div className="App">
-    <p>list User:</p>
-    <Users/>
 
+        <div className={`header`}>
+            <h1>The Rick and Morty API</h1>
+        </div>
+<div className={`gray`}>
+      <Characters/>
+</div>
     </div>
   );
 }
