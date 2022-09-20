@@ -1,12 +1,12 @@
 
 import './App.css';
-import {users} from "./components/userList/list";
+import {simpsons} from "./components/userList/list";
 import Users from "./components/users/Users";
 
 function App() {
   return (
     <div className="App">
-    <p>list User:</p>
+    <h1>SIMPSONS</h1>
     <Users/>
 
     </div>
