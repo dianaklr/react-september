@@ -13,13 +13,36 @@
 }
 
 .gray{
+    display: flex;
+    width:600px;
+    height: 250px;
+    border-radius: 20px;
+    margin: 20px;
+    background-color: #3c3e43;
+
+}
+
+.main{
+    /*width: 50%;*/
+    /*background-color: white;*/
     width: 100%;
     background-color: rgb(32, 35, 41);
     display: flex;
     justify-content: space-around;
     text-align: center;
+    flex-wrap: wrap;
+    height: 100%;
 }
 
-.main{
+.personImg img{
+    height: 250px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+.person{
+    margin-left: 30px;
+    text-align: left;
+    color: white;
 
 }
+
