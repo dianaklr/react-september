@@ -9,9 +9,9 @@ function App() {
         <div className={`header`}>
             <h1>The Rick and Morty API</h1>
         </div>
-<div >
+
       <Characters/>
-</div>
+
     </div>
   );
 }

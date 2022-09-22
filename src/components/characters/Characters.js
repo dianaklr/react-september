@@ -13,7 +13,7 @@ export default function Characters(){
         })
 
     return(
-        <div>
+        <div className={'grayMainBox'}>
             {
                 characters.map(character => <Character key = {character.id}
                 character = {character}
