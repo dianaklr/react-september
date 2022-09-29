@@ -1,10 +1,10 @@
-import Cars from "./components/Cars/Cars";
+import {Cars} from "./components/Cars/Cars";
 
 
 const App = () => {
   return (
       <div>
-        <Cars/>
+      <Cars/>
       </div>
   );
 };
