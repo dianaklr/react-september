@@ -1,16 +1,12 @@
+import Cars from "./components/Cars/Cars";
 
-import './App.css';
-import {users} from "./components/userList/list";
-import Users from "./components/users/Users";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-    <p>list User:</p>
-    <Users/>
-
-    </div>
+      <div>
+        <Cars/>
+      </div>
   );
-}
+};
 
-export default App;
+export {App};
