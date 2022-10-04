@@ -54,25 +54,36 @@ import {carValidator} from "../../validators";
 import {carService} from "../../servises/car.service";
 
 
-const CarForm = ({setCars}) => {
+const CarForm = ({setCars, carForUpdate, setCarForUpdate}) => {
     const {register, handleSubmit, reset, formState: {errors, isValid}, setValue} = useForm({
-        // resolver: joiResolver(carValidator),
+        resolver: joiResolver(carValidator),
         mode: 'all'
     });
 
     useEffect(() => {
-        setValue('model', 'BMW')
-        setValue('price', 90000)
-        setValue('year', 2008)
-    }, [])
+        if (carForUpdate) {
+            setValue('model', carForUpdate.model, {shouldValidate: true})
+            setValue('price', carForUpdate.price, {shouldValidate: true})
+            setValue('year', carForUpdate.year, {shouldValidate: true})
+        }
+    }, [carForUpdate, setValue])
 
     const submit = async (car) => {
-        console.log(car);
-        //const {data} = await carService.create(car);
-         //setCars(cars => [...cars, data])
-        // reset()
-    };
+        if (carForUpdate) {
+            const {data} = await carService.updateById(carForUpdate.id, car);
+            setCars((cars) => {
+                const findCar = cars.find(value => value.id === carForUpdate.id);
+                Object.assign(findCar, data)
+                setCarForUpdate(null)
+                return [...cars]
+            })
+        } else {
+            const {data} = await carService.create(car);
+           // setCars(cars => [...cars, data])
+        }
 
+        reset()
+    };
     return (
         // <form onSubmit={handleSubmit(submit)} onChange={()=> console.log(errors)}>
         //     <input type="text" placeholder={'model'} {...register('model', {required:true, minLength:{value:2, message:'min 2 ch'}})}/>
